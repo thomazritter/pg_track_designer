@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		124C1AE12DD5178900942737 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124C1AE02DD5178900942737 /* OpenGL.framework */; };
+		12EDA0432DD518B8003CD937 /* libglfw.3.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 12EDA0422DD518B8003CD937 /* libglfw.3.4.dylib */; };
+		12EDA0452DD5193C003CD937 /* libGLEW.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 12EDA0442DD5193C003CD937 /* libGLEW.2.2.0.dylib */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		124C181C2DD508E600942737 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -20,6 +26,9 @@
 
 /* Begin PBXFileReference section */
 		124C181E2DD508E600942737 /* pg_project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pg_project; sourceTree = BUILT_PRODUCTS_DIR; };
+		124C1AE02DD5178900942737 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		12EDA0422DD518B8003CD937 /* libglfw.3.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.4.dylib; path = ../../../../../../opt/homebrew/Cellar/glfw/3.4/lib/libglfw.3.4.dylib; sourceTree = "<group>"; };
+		12EDA0442DD5193C003CD937 /* libGLEW.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.2.0.dylib; path = ../../../../../../opt/homebrew/Cellar/glew/2.2.0_1/lib/libGLEW.2.2.0.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -35,6 +44,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12EDA0452DD5193C003CD937 /* libGLEW.2.2.0.dylib in Frameworks */,
+				12EDA0432DD518B8003CD937 /* libglfw.3.4.dylib in Frameworks */,
+				124C1AE12DD5178900942737 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				124C18202DD508E600942737 /* pg_project */,
+				124C1ADF2DD5178900942737 /* Frameworks */,
 				124C181F2DD508E600942737 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,6 +68,16 @@
 				124C181E2DD508E600942737 /* pg_project */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		124C1ADF2DD5178900942737 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				12EDA0442DD5193C003CD937 /* libGLEW.2.2.0.dylib */,
+				12EDA0422DD518B8003CD937 /* libglfw.3.4.dylib */,
+				124C1AE02DD5178900942737 /* OpenGL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +182,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -178,6 +202,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/glfw/3.4/include,
+					/opt/homebrew/Cellar/glew/2.2.0_1/include,
+					/opt/homebrew/Cellar/glm/1.0.1/include,
+				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -220,6 +249,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -233,6 +263,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/glfw/3.4/include,
+					/opt/homebrew/Cellar/glew/2.2.0_1/include,
+					/opt/homebrew/Cellar/glm/1.0.1/include,
+				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -244,7 +279,19 @@
 		124C18262DD508E600942737 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/glfw/3.4/include,
+					/opt/homebrew/Cellar/glm/1.0.1/include,
+					/opt/homebrew/Cellar/glew/2.2.0_1/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/glew/2.2.0_1/lib,
+					"$(inherited)",
+					/opt/homebrew/Cellar/glfw/3.4/lib,
+					/opt/homebrew/Cellar/glm/1.0.1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -252,7 +299,19 @@
 		124C18272DD508E600942737 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/glfw/3.4/include,
+					/opt/homebrew/Cellar/glm/1.0.1/include,
+					/opt/homebrew/Cellar/glew/2.2.0_1/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/glew/2.2.0_1/lib,
+					"$(inherited)",
+					/opt/homebrew/Cellar/glfw/3.4/lib,
+					/opt/homebrew/Cellar/glm/1.0.1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
