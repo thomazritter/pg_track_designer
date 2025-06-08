@@ -64,7 +64,7 @@ void gerarObj(const std::string& nomeArquivo = "pista.obj") {
     for (const auto& v : curvaExterna)
         file << "v " << v.x << " " << v.z << " " << v.y << "\n";
 
-    // 2. Coordenadas de textura (seguindo ordem indicada no quadro)
+    // 2. Coordenadas de textura
     file << "vt 0.0 0.0\n"; // 1
     file << "vt 1.0 0.0\n"; // 2
     file << "vt 1.0 1.0\n"; // 3
@@ -89,7 +89,7 @@ void gerarObj(const std::string& nomeArquivo = "pista.obj") {
         file << "vn " << vn2.x << " " << vn2.y << " " << vn2.z << "\n";
     }
 
-    // 4. Faces conforme esquema do quadro (i, i+1, i+N, i+N+1)
+    // 4. Faces (i, i+1, i+N, i+N+1)
     for (int i = 0; i < N; ++i) {
         int v1 = i + 1;                     // interna[i]
         int v2 = (i + 1) % N + 1;           // interna[i+1]
@@ -123,7 +123,7 @@ void gravarPontosDaCurvaEmTxt(const std::string& nomeArquivo = "pontoscurva.txt"
     }
     
     for (const auto& p : pontosDaCurva) {
-        file << p.x << " " << p.y << " " << p.z << "\n";
+        file << p.x << " " << p.z << " " << p.y << "\n";
     }
     
     file.close();
@@ -336,16 +336,16 @@ int main() {
         glBindBuffer(GL_ARRAY_BUFFER, vboPontosDeControle);
         glBufferData(GL_ARRAY_BUFFER, pontosDeControle.size() * sizeof(glm::vec3), pontosDeControle.data(), GL_STATIC_DRAW);
 
-        glPointSize(8.0f);
+        glPointSize(5.0f);
         desenharCliqueDoMouse(shader, vaoPontosDeControle, vboPontosDeControle);
 
-        if (pontosDeControle.size() > 2) {
+        if (pontosDeControle.size() >= 2) {
             glBindBuffer(GL_ARRAY_BUFFER, vboLinhasDeControle);
             glBufferData(GL_ARRAY_BUFFER, pontosDeControle.size() * sizeof(glm::vec3), pontosDeControle.data(), GL_STATIC_DRAW);
             desenharLinhaEntrePontos(shader, vaoLinhasDeControle, vboLinhasDeControle);
         }
 
-        if (pontosDeControle.size() > 3) {
+        if (pontosDeControle.size() > 4) {
             gerarCurvaBSpline();
             glBindBuffer(GL_ARRAY_BUFFER, vboPontosDaCurva);
             glBufferData(GL_ARRAY_BUFFER, pontosDaCurva.size() * sizeof(glm::vec3), pontosDaCurva.data(), GL_STATIC_DRAW);
